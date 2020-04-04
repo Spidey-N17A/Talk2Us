@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1063297329142",
+    "firebase_url": "https://talk2us-250dd.firebaseio.com",
+    "project_id": "talk2us-250dd",
+    "storage_bucket": "talk2us-250dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063297329142:android:d6fa59e60004cb3f0589d7",
+        "android_client_info": {
+          "package_name": "com.dapp.talk2us"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063297329142-mi6o9s7mhqsopqkrb9s6h09smph9teo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dapp.talk2us",
+            "certificate_hash": "fa3eadde8cef6b4abf04930592ad730097334000"
+          }
+        },
+        {
+          "client_id": "1063297329142-g70jqs4isihq969nljdr3qr3v6nlm8k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5bTDRjlVE783tRwn5X3tFfDJaltfocHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063297329142-g70jqs4isihq969nljdr3qr3v6nlm8k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
