@@ -1,7 +1,6 @@
 package com.dapp.talk2us.ui.login
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,16 +40,12 @@ class WelcomeActivity : AppCompatActivity() {
                 next?.text = getString(R.string.got_it)
             }
         }
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-        if (PrefManager.getBoolean(R.string.first_time, true)) {
-            startActivity(Intent(applicationContext, LoginActivity::class.java))
-        }
+        PrefManager.putBoolean(R.string.first_time, false)
         skip = findViewById(R.id.welcome_skip)
         next = findViewById(R.id.welcome_next)
         tabLayout = findViewById(R.id.welcome_tab_layout)
@@ -63,7 +58,7 @@ class WelcomeActivity : AppCompatActivity() {
         viewPager?.addOnPageChangeListener(viewPagerChangeListener)
 
         skip?.setOnClickListener {
-            startActivity(Intent(applicationContext, LoginActivity::class.java))
+            finish()
         }
         next?.setOnClickListener {
             val current = getLayoutPosition()
@@ -73,7 +68,7 @@ class WelcomeActivity : AppCompatActivity() {
                     //  to next screen
                     viewPager?.currentItem = current
                 } else {
-                    startActivity(Intent(applicationContext, LoginActivity::class.java))
+                    finish()
                 }
             }
 
