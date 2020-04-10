@@ -1,6 +1,7 @@
 package com.dapp.talk2us.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dapp.talk2us.R
+import com.dapp.talk2us.ui.chat.ChatActivity
 import com.dapp.talk2us.utils.PrefManager
 
 class LoginActivity : AppCompatActivity() {
@@ -23,10 +25,11 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
-        PrefManager.putBoolean(R.string.first_time, false)
 
+        if (PrefManager.getBoolean(R.string.first_time, true)) {
+            startActivity(Intent(applicationContext, WelcomeActivity::class.java))
+        }
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
@@ -60,9 +63,6 @@ class LoginActivity : AppCompatActivity() {
                 updateUiWithUser(loginResult.success)
             }
             setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
         })
 
         username.afterTextChanged {
@@ -107,6 +107,7 @@ class LoginActivity : AppCompatActivity() {
             "$welcome $displayName",
             Toast.LENGTH_LONG
         ).show()
+        startActivity(Intent(applicationContext, ChatActivity::class.java))
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
